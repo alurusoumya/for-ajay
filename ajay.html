@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Ajay 🤍</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f5f5f5;
+  color: #444;
+  text-align: center;
+}
+
+/* Smooth animations */
+.fade {
+  animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Buttons */
+button {
+  background: #e6dada;
+  border: none;
+  padding: 14px 24px;
+  margin: 10px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #d8cfcf;
+  transform: scale(1.05);
+}
+
+/* Heart animation */
+.heart {
+  position: fixed;
+  bottom: 0;
+  font-size: 20px;
+  animation: float 4s linear forwards;
+}
+
+@keyframes float {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-600px); opacity: 0; }
+}
+
+/* Sections */
+section {
+  padding: 60px 20px;
+}
+
+/* Popup */
+#popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+</style>
+</head>
+
+<body>
+
+<section class="fade">
+  <h1>Hi Ajay 🤍</h1>
+  <p>This little website is made only for you.</p>
+  <button onclick="showLove()">Enter My Heart 💗</button>
+  <button onclick="smile()">Tap for a Smile 😊</button>
+</section>
+
+<section class="fade">
+  <h2>You Are My Comfort</h2>
+  <p>You make silence feel safe.</p>
+  <button onclick="why()">Why?</button>
+</section>
+
+<section class="fade">
+  <h2>Things I Love About You</h2>
+  <p id="loveList"></p>
+  <button onclick="moreLove()">More Love ➕</button>
+</section>
+
+<section class="fade">
+  <h2>For When You're Tired 🫂</h2>
+  <button onclick="comfort()">Click Here 🤍</button>
+</section>
+
+<div id="popup"></div>
+
+<script>
+let loves = [
+  "Your calm nature 🤍",
+  "Your silent care 🌙",
+  "The way you listen 💭",
+  "The way you exist 🫶"
+];
+let index = 0;
+
+function showLove() {
+  alert("Welcome to my heart, Ajay 🤍");
+}
+
+function smile() {
+  createHeart();
+}
+
+function why() {
+  showPopup("Because you are kind, calm, and always you 🤍");
+}
+
+function moreLove() {
+  if (index < loves.length) {
+    document.getElementById("loveList").innerHTML += loves[index] + "<br>";
+    index++;
+    createHeart();
+  } else {
+    showPopup("That's all my heart can hold right now 🥹🤍");
+  }
+}
+
+function comfort() {
+  showPopup("Take a deep breath.<br>I’m proud of you.<br>I’m always here 🤍");
+}
+
+function showPopup(text) {
+  let pop = document.getElementById("popup");
+  pop.innerHTML = text + "<br><br><button onclick='closePopup()'>Close</button>";
+  pop.style.display = "block";
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+
+function createHeart() {
+  let heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "🤍";
+  heart.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 4000);
+}
+</script>
+
+</body>
+</html>
