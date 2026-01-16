@@ -6,6 +6,14 @@
 
 <style>
 body {
+  <audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button onclick="toggleMusic()" style="position:fixed; top:20px; right:20px;">
+🎵 Music
+</button>
+
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   background: #f5f5f5;
@@ -77,14 +85,14 @@ section {
 
 <section class="fade">
   <h1>Hi Ajay 🤍</h1>
-  <p>This little website is made only for you.</p>
+  <p>With all my love.. this is for you nanna !</p>
   <button onclick="showLove()">Enter My Heart 💗</button>
   <button onclick="smile()">Tap for a Smile 😊</button>
 </section>
 
 <section class="fade">
-  <h2>You Are My Comfort</h2>
-  <p>You make silence feel safe.</p>
+  <h2>You Are My Comfort nanna</h2>
+  <p>You make me feel safe.</p>
   <button onclick="why()">Why?</button>
 </section>
 
@@ -102,16 +110,30 @@ section {
 <div id="popup"></div>
 
 <script>
+  let musicPlaying = false;
+
+function toggleMusic() {
+  let music = document.getElementById("bgMusic");
+  if (!musicPlaying) {
+    music.volume = 0.2;   // VERY SOFT
+    music.play();
+    musicPlaying = true;
+  } else {
+    music.pause();
+    musicPlaying = false;
+  }
+}
+
 let loves = [
-  "Your calm nature 🤍",
-  "Your silent care 🌙",
+  "Your= character 🤍",
+  "Your love and care 🌙",
   "The way you listen 💭",
-  "The way you exist 🫶"
+  "The way you support at my bad 🫶"
 ];
 let index = 0;
 
 function showLove() {
-  alert("Welcome to my heart, Ajay 🤍");
+  alert("Welcome to my heart, nannaa 🤍");
 }
 
 function smile() {
@@ -119,7 +141,7 @@ function smile() {
 }
 
 function why() {
-  showPopup("Because you are kind, calm, and always you 🤍");
+  showPopup("Because you are my peace, my only hope and my happiness,🤍");
 }
 
 function moreLove() {
@@ -133,7 +155,7 @@ function moreLove() {
 }
 
 function comfort() {
-  showPopup("Take a deep breath.<br>I’m proud of you.<br>I’m always here 🤍");
+  showPopup("Take a deep breath.<br>I'm there for you <br>I’m always here for you 🤍");
 }
 
 function showPopup(text) {
@@ -158,3 +180,4 @@ function createHeart() {
 
 </body>
 </html>
+
